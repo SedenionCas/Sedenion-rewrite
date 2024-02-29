@@ -1,0 +1,5 @@
+@import '../node_modules/dockview/dist/styles/dockview.css';
+
+body {
+  margin: 0;
+}
