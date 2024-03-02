@@ -28,7 +28,7 @@ function App() {
     <PluginProvider pluginStore={pluginStore}>
       <div style={{ width: "100vw", height: "100vh" }}>
         <DockviewReact
-          className="dockview-theme-dark"
+          className="dockview"
           components={components}
           onReady={OnDockviewReady}
         />

@@ -1,5 +1,82 @@
-@import '../node_modules/dockview/dist/styles/dockview.css';
+@import "../node_modules/dockview/dist/styles/dockview.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
   margin: 0;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --primary: #006591;
+    --on-primary: #ffffff;
+    --primary-container: #c9e6ff;
+    --on-primary-container: #001e2f;
+
+    --secondary: #4f606e;
+    --on-secondary: #ffffff;
+    --secondary-container: #d3e5f5;
+    --on-secondary-container: #0b1d29;
+
+    --tertiary: #64597c;
+    --on-tertiary: #ffffff;
+    --tertiary-container: #eaddff;
+    --on-tertiary-container: #1f1635;
+
+    --error: #ba1a1a;
+    --on-error: #ffffff;
+    --error-container: #ffdad6;
+    --on-error-container: #410002;
+
+    --background: #fcfcff;
+    --on-background: #191c1e;
+    --surface: #fcfcff;
+    --on-surface: #191c1e;
+
+    --outline: #71787e;
+    --surface-variant: #dde3ea;
+    --on-surface-variant: #41474d;
+  }
+
+  .dockview {
+    @apply dockview-theme-light;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #89ceff;
+    --on-primary: #00344d;
+    --primary-container: #004c6e;
+    --on-primary-container: #c9e6ff;
+
+    --secondary: #b7c9d9;
+    --on-secondary: #21323f;
+    --secondary-container: #384956;
+    --on-secondary-container: #d3e5f5;
+
+    --tertiary: #cec0e8;
+    --on-tertiary: #352b4b;
+    --tertiary-container: #4c4163;
+    --on-tertiary-container: #eaddff;
+
+    --error: #ffb4ab;
+    --on-error: #690005;
+    --error-container: #93000a;
+    --on-error-container: #ffdad6;
+
+    --background: #191c1e;
+    --on-background: #e2e2e5;
+    --surface: #191c1e;
+    --on-surface: #e2e2e5;
+
+    --outline: #8b9198;
+    --surface-variant: #41474d;
+    --on-surface-variant: #c1c7ce;
+  }
+
+  .dockview {
+    @apply dockview-theme-dark;
+  }
 }
