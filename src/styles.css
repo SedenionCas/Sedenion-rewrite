@@ -1,4 +1,4 @@
-@import "../node_modules/dockview/dist/styles/dockview.css";
+@import "./dockview.css";
 
 @tailwind base;
 @tailwind components;
@@ -6,31 +6,6 @@
 
 * {
   user-select: none;
-}
-
-.dockview {
-  --dv-background-color: hsl(var(--background));
-  --dv-paneview-active-outline-color: hsl(var(--border));
-  --dv-drag-over-background-color: color-mix(
-    in srgb,
-    hsl(var(--primary)) 20%,
-    transparent
-  );
-  --dv-drag-over-border-color: hsl(var(--foreground));
-  --dv-tabs-container-scrollbar-color: hsl(var(--primary));
-  --dv-floating-box-shadow: 4px 4px 4px 0px
-    color-mix(in srgb, black 20%, transparent);
-  --dv-group-view-background-color: hsl(var(--background));
-  --dv-tabs-and-actions-container-background-color: hsl(var(--muted));
-  --dv-activegroup-visiblepanel-tab-background-color: hsl(var(--background));
-  --dv-activegroup-hiddenpanel-tab-background-color: hsl(var(--muted));
-  --dv-inactivegroup-visiblepanel-tab-background-color: hsl(var(--background));
-  --dv-inactivegroup-hiddenpanel-tab-background-color: hsl(var(--muted));
-  --dv-activegroup-visiblepanel-tab-color: hsl(var(--foreground));
-  --dv-activegroup-hiddenpanel-tab-color: hsl(var(--muted-foreground));
-  --dv-inactivegroup-visiblepanel-tab-color: hsl(var(--muted-foreground));
-  --dv-inactivegroup-hiddenpanel-tab-color: hsl(var(--muted-foreground));
-  --dv-separator-border: hsl(var(--border));
 }
 
 @layer base {
