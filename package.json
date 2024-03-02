@@ -10,8 +10,9 @@
     "tauri": "tauri"
   },
   "dependencies": {
+    "@cortex-js/compute-engine": "^0.24.1",
+    "@radix-ui/react-slot": "^1.0.2",
     "@tauri-apps/api": "^1",
-    "algebrite": "^1.4.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "dockview": "^1.10.0",

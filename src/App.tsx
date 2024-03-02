@@ -4,7 +4,7 @@ import {
   RendererPlugin,
   createPluginStore,
 } from "react-pluggable";
-import { CasPlugin } from "./modules/cas/CasPlugin";
+import { CasPlugin } from "./plugins/cas/CasPlugin";
 
 const pluginStore = createPluginStore();
 pluginStore.install(new RendererPlugin());
