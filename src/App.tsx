@@ -22,6 +22,16 @@ function App() {
       component: "cas",
       title: "Cas",
     });
+    event.api.addPanel({
+      id: "cas2",
+      component: "cas",
+      title: "Cas2",
+    });
+    event.api.addPanel({
+      id: "cas3",
+      component: "cas",
+      title: "Cas3",
+    });
   };
 
   return (

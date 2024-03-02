@@ -1,82 +1,92 @@
 @import "../node_modules/dockview/dist/styles/dockview.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
+* {
+  user-select: none;
 }
 
-@media (prefers-color-scheme: light) {
+.dockview {
+  --dv-background-color: hsl(var(--background));
+  --dv-paneview-active-outline-color: hsl(var(--border));
+  --dv-drag-over-background-color: color-mix(
+    in srgb,
+    hsl(var(--primary)) 20%,
+    transparent
+  );
+  --dv-drag-over-border-color: hsl(var(--foreground));
+  --dv-tabs-container-scrollbar-color: hsl(var(--primary));
+  --dv-floating-box-shadow: 4px 4px 4px 0px
+    color-mix(in srgb, black 20%, transparent);
+  --dv-group-view-background-color: hsl(var(--background));
+  --dv-tabs-and-actions-container-background-color: hsl(var(--muted));
+  --dv-activegroup-visiblepanel-tab-background-color: hsl(var(--background));
+  --dv-activegroup-hiddenpanel-tab-background-color: hsl(var(--muted));
+  --dv-inactivegroup-visiblepanel-tab-background-color: hsl(var(--background));
+  --dv-inactivegroup-hiddenpanel-tab-background-color: hsl(var(--muted));
+  --dv-activegroup-visiblepanel-tab-color: hsl(var(--foreground));
+  --dv-activegroup-hiddenpanel-tab-color: hsl(var(--muted-foreground));
+  --dv-inactivegroup-visiblepanel-tab-color: hsl(var(--muted-foreground));
+  --dv-inactivegroup-hiddenpanel-tab-color: hsl(var(--muted-foreground));
+  --dv-separator-border: hsl(var(--border));
+}
+
+@layer base {
   :root {
-    --primary: #006591;
-    --on-primary: #ffffff;
-    --primary-container: #c9e6ff;
-    --on-primary-container: #001e2f;
-
-    --secondary: #4f606e;
-    --on-secondary: #ffffff;
-    --secondary-container: #d3e5f5;
-    --on-secondary-container: #0b1d29;
-
-    --tertiary: #64597c;
-    --on-tertiary: #ffffff;
-    --tertiary-container: #eaddff;
-    --on-tertiary-container: #1f1635;
-
-    --error: #ba1a1a;
-    --on-error: #ffffff;
-    --error-container: #ffdad6;
-    --on-error-container: #410002;
-
-    --background: #fcfcff;
-    --on-background: #191c1e;
-    --surface: #fcfcff;
-    --on-surface: #191c1e;
-
-    --outline: #71787e;
-    --surface-variant: #dde3ea;
-    --on-surface-variant: #41474d;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
   }
 
-  .dockview {
-    @apply dockview-theme-light;
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: 222.2 84% 4.9%;
+      --foreground: 210 40% 98%;
+      --card: 222.2 84% 4.9%;
+      --card-foreground: 210 40% 98%;
+      --popover: 222.2 84% 4.9%;
+      --popover-foreground: 210 40% 98%;
+      --primary: 217.2 91.2% 59.8%;
+      --primary-foreground: 222.2 47.4% 11.2%;
+      --secondary: 217.2 32.6% 17.5%;
+      --secondary-foreground: 210 40% 98%;
+      --muted: 217.2 32.6% 17.5%;
+      --muted-foreground: 215 20.2% 65.1%;
+      --accent: 217.2 32.6% 17.5%;
+      --accent-foreground: 210 40% 98%;
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 210 40% 98%;
+      --border: 217.2 32.6% 17.5%;
+      --input: 217.2 32.6% 17.5%;
+      --ring: 224.3 76.3% 48%;
+    }
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary: #89ceff;
-    --on-primary: #00344d;
-    --primary-container: #004c6e;
-    --on-primary-container: #c9e6ff;
-
-    --secondary: #b7c9d9;
-    --on-secondary: #21323f;
-    --secondary-container: #384956;
-    --on-secondary-container: #d3e5f5;
-
-    --tertiary: #cec0e8;
-    --on-tertiary: #352b4b;
-    --tertiary-container: #4c4163;
-    --on-tertiary-container: #eaddff;
-
-    --error: #ffb4ab;
-    --on-error: #690005;
-    --error-container: #93000a;
-    --on-error-container: #ffdad6;
-
-    --background: #191c1e;
-    --on-background: #e2e2e5;
-    --surface: #191c1e;
-    --on-surface: #e2e2e5;
-
-    --outline: #8b9198;
-    --surface-variant: #41474d;
-    --on-surface-variant: #c1c7ce;
+@layer base {
+  * {
+    @apply border-border;
   }
-
-  .dockview {
-    @apply dockview-theme-dark;
+  body {
+    @apply bg-background text-foreground;
   }
 }
