@@ -1,19 +1,13 @@
 import { DockviewReact, DockviewReadyEvent } from "dockview";
-import {
-  PluginProvider,
-  RendererPlugin,
-  createPluginStore,
-} from "react-pluggable";
-import { CasPlugin } from "./plugins/cas/CasPlugin";
+import { PluginManager } from "./lib/PluginManager";
+import CasPlugin from "./plugins/cas/CasPlugin";
 
-const pluginStore = createPluginStore();
-pluginStore.install(new RendererPlugin());
-pluginStore.install(new CasPlugin(pluginStore));
+const pluginManager = new PluginManager();
+pluginManager.load(new CasPlugin(pluginManager));
 
 function App() {
-  const Renderer = pluginStore.executeFunction("Renderer.getRendererComponent");
   const components = {
-    cas: () => <Renderer placement="cas.display" />,
+    cas: pluginManager.getFunction("cas:render"),
   };
 
   const OnDockviewReady = (event: DockviewReadyEvent) => {
@@ -35,15 +29,13 @@ function App() {
   };
 
   return (
-    <PluginProvider pluginStore={pluginStore}>
-      <div style={{ width: "100vw", height: "100vh" }}>
-        <DockviewReact
-          className="dockview"
-          components={components}
-          onReady={OnDockviewReady}
-        />
-      </div>
-    </PluginProvider>
+    <div style={{ width: "100vw", height: "100vh" }}>
+      <DockviewReact
+        className="dockview"
+        components={components}
+        onReady={OnDockviewReady}
+      />
+    </div>
   );
 }
 
