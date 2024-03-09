@@ -43,7 +43,7 @@ export default class CasPlugin extends Plugin {
     return (await this.pluginManager.callFunction(
       "dbDriver:load",
       this,
-      "cas"
+      "cas",
     )) as DbValue<CasPluginSaveData>;
   }
 }

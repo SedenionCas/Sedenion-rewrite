@@ -36,21 +36,21 @@ function CasPanel({ plugin }: CasPanelProps) {
   };
 
   return (
-    <div className="px-4 py-2 mt-4 max-h-full overflow-y-auto pb-8 flex flex-col">
+    <div className="mt-4 flex max-h-full flex-col overflow-y-auto px-4 py-2 pb-8">
       <div className="space-y-4">
         {calculations.map((calculation, index) => (
           <div
             key={index}
-            className="flex flex-col gap-2 px-8 py-4 bg-secondary rounded-md border border-border"
+            className="flex flex-col gap-2 rounded-md border border-border bg-secondary px-8 py-4"
           >
             <StaticMathField children={calculation[0]} />
             <StaticMathField children={calculation[1]} />
           </div>
         ))}
       </div>
-      <div className="flex px-4 gap-4 bg-secondary justify-center mt-8 items-center rounded-md border border-border">
+      <div className="mt-8 flex items-center justify-center gap-4 rounded-md border border-border bg-secondary px-4">
         <EditableMathField
-          className="w-full border-none focus-within:ring-0 h-full min-h-16 flex items-center"
+          className="flex h-full min-h-16 w-full items-center border-none focus-within:ring-0"
           latex={input}
           onChange={(field) => {
             setInput(field.latex());

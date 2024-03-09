@@ -22,14 +22,14 @@ export class PluginManager {
             break;
           } else {
             throw new Error(
-              `Plugin ${plugin.getID()} does not satisfy version query ${versionQuery}`
+              `Plugin ${plugin.getID()} does not satisfy version query ${versionQuery}`,
             );
           }
         }
       }
       if (!found) {
         throw new Error(
-          `Plugin ${name} not found but is required by ${plugin.getID()}`
+          `Plugin ${name} not found but is required by ${plugin.getID()}`,
         );
       }
     }
@@ -46,7 +46,7 @@ export class PluginManager {
     for (const otherPlugin of this._plugins) {
       if (otherPlugin.dependencies.includes(plugin.getID())) {
         throw new Error(
-          `Plugin ${otherPlugin.getID()} depends on ${plugin.getID()} cannot unload`
+          `Plugin ${otherPlugin.getID()} depends on ${plugin.getID()} cannot unload`,
         );
       }
     }
@@ -62,7 +62,7 @@ export class PluginManager {
 
     if (this._functions.has(`${plugin.name}:${name}`)) {
       throw new Error(
-        `Function ${name} already registered by plugin ${plugin.getID()}`
+        `Function ${name} already registered by plugin ${plugin.getID()}`,
       );
     }
 
@@ -78,7 +78,7 @@ export class PluginManager {
 
     if (!this._functions.has(`${plugin.name}:${name}`)) {
       throw new Error(
-        `Function ${name} not registered by plugin ${plugin.getID()}`
+        `Function ${name} not registered by plugin ${plugin.getID()}`,
       );
     }
 
@@ -94,7 +94,7 @@ export class PluginManager {
 
     console.log(
       `Called function ${name} with args ${JSON.stringify(args)} and got`,
-      value
+      value,
     );
 
     return value;
