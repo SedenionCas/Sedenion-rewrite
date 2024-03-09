@@ -26,7 +26,8 @@
 }
 
 .tabs-container {
-  height: 3rem;
+  /* Important required to prevent a race condition*/
+  height: 3rem !important;
   display: flex;
   align-items: end;
 }
