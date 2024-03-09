@@ -1,6 +1,5 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 type DocumentId = string;
-type DocumentKey = string;
-type AttachmentId = string;
 type RevisionId = string;
 type Availability = "available" | "compacted" | "not compacted" | "missing";
 type AttachmentData = string | Blob | Buffer;

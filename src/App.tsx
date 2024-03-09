@@ -1,5 +1,6 @@
+import React from "react";
 import { DockviewReact, DockviewReadyEvent } from "dockview";
-import { PluginManager } from "./lib/PluginManager";
+import PluginManager from "./lib/PluginManager";
 import CasPlugin from "./plugins/cas/CasPlugin";
 import DbDriver from "./plugins/dbDriver/DbDriver";
 

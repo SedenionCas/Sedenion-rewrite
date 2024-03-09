@@ -1,9 +1,11 @@
+import React, { useEffect, useState } from "react";
 import { EditableMathField, StaticMathField, addStyles } from "react-mathquill";
-import CasPlugin from "./CasPlugin";
-import { useEffect, useState } from "react";
 import { ComputeEngine } from "@cortex-js/compute-engine";
 import { EqualIcon } from "lucide-react";
 import { Button, buttonVariants } from "src/components/ui/button";
+import key from "src/lib/key";
+
+import type CasPlugin from "./CasPlugin";
 
 addStyles();
 
@@ -38,13 +40,13 @@ function CasPanel({ plugin }: CasPanelProps) {
   return (
     <div className="mt-4 flex max-h-full flex-col overflow-y-auto px-4 py-2 pb-8">
       <div className="space-y-4">
-        {calculations.map((calculation, index) => (
+        {calculations.map((calculation) => (
           <div
-            key={index}
+            key={key()}
             className="flex flex-col gap-2 rounded-md border border-border bg-secondary px-8 py-4"
           >
-            <StaticMathField children={calculation[0]} />
-            <StaticMathField children={calculation[1]} />
+            <StaticMathField>{calculation[0]}</StaticMathField>
+            <StaticMathField>{calculation[1]}</StaticMathField>
           </div>
         ))}
       </div>

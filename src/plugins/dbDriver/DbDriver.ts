@@ -1,9 +1,11 @@
 import db from "src/lib/db";
-import { Plugin } from "src/types/Plugin";
+import Plugin from "src/types/Plugin";
 
 export default class DbDriver extends Plugin {
   name: string = "dbDriver";
+
   version: string = "0.0.0";
+
   dependencies: string[] = [];
 
   onStart(): void {
@@ -22,13 +24,16 @@ export default class DbDriver extends Plugin {
 
   async save(plugin: Plugin, id: string, data: any) {
     const doc = await db.get(`${plugin.name}:${id}`).catch((err) => {
-      if (err.name == "not_found") {
-        console.log("creating new doc");
+      if (err.name === "not_found") {
+        // eslint-disable-next-line @typescript-eslint/naming-convention
         return { _id: `${plugin.name}:${id}`, _rev: undefined };
       }
+      throw err;
     });
     const rev = {
+      // eslint-disable-next-line @typescript-eslint/naming-convention
       _id: doc?._id,
+      // eslint-disable-next-line @typescript-eslint/naming-convention
       _rev: doc?._rev,
       data,
     };
@@ -37,7 +42,7 @@ export default class DbDriver extends Plugin {
   }
 
   async load(plugin: Plugin, id: string): Promise<any> {
-    return await db.get(`${plugin.name}:${id}`);
+    return db.get(`${plugin.name}:${id}`);
   }
 
   delete(): void {

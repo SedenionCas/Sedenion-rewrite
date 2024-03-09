@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import { PluginManager } from "src/lib/PluginManager";
-import { Plugin } from "src/types/Plugin";
+import Plugin from "src/types/Plugin";
+import { type DbValue } from "src/types/Db";
 import CasPanel from "./CasPanel";
-import { DbValue } from "src/types/Db";
 
 interface CasPluginSaveData {
   calculations: [string, string][];
@@ -10,7 +10,9 @@ interface CasPluginSaveData {
 
 export default class CasPlugin extends Plugin {
   name: string = "cas";
+
   version: string = "0.0.0";
+
   dependencies: string[] = [];
 
   constructor(pluginManager: PluginManager) {
@@ -23,11 +25,9 @@ export default class CasPlugin extends Plugin {
 
   onStart(): void {
     this.pluginManager.registerFunction(this, "render", this.render);
-    console.log("CasPlugin started");
   }
 
   onStop(): void {
-    console.log("CasPlugin stopped");
     this.pluginManager.unregisterFunction(this, "render");
   }
 

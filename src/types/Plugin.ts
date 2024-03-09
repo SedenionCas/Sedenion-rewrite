@@ -1,10 +1,12 @@
 import { PluginManager } from "src/lib/PluginManager";
 
-export abstract class Plugin {
+export default abstract class Plugin {
   pluginManager: PluginManager;
 
   abstract name: string;
+
   abstract version: string;
+
   abstract dependencies: string[];
 
   constructor(pluginManager: PluginManager) {
