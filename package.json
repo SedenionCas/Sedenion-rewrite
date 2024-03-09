@@ -24,8 +24,7 @@
     "react-mathquill": "^1.0.3",
     "semver": "^7.6.0",
     "tailwind-merge": "^2.2.1",
-    "tailwindcss-animate": "^1.0.7",
-    "zustand": "^4.5.1"
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1",
