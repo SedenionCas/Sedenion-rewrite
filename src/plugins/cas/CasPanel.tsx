@@ -3,6 +3,7 @@ import CasPlugin from "./CasPlugin";
 import { useEffect, useState } from "react";
 import { ComputeEngine } from "@cortex-js/compute-engine";
 import { EqualIcon } from "lucide-react";
+import { Button, buttonVariants } from "src/components/ui/button";
 
 addStyles();
 
@@ -35,7 +36,7 @@ function CasPanel({ plugin }: CasPanelProps) {
   };
 
   return (
-    <div className="px-4 py-2 mt-4">
+    <div className="px-4 py-2 mt-4 max-h-full overflow-y-auto pb-8 flex flex-col">
       <div className="space-y-4">
         {calculations.map((calculation, index) => (
           <div
@@ -54,13 +55,15 @@ function CasPanel({ plugin }: CasPanelProps) {
           onChange={(field) => {
             setInput(field.latex());
           }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handelEval();
+            }
+          }}
         />
-        <button
-          className="bg-primary text-primary-foreground border-none h-fit p-3 rounded-md"
-          onClick={() => handelEval()}
-        >
+        <Button className={buttonVariants({ size: "icon" })}>
           <EqualIcon />
-        </button>
+        </Button>
       </div>
     </div>
   );

@@ -1,6 +1,5 @@
 import { Plugin } from "src/types/Plugin";
 import semver from "semver";
-import { ReactNode } from "react";
 
 export class PluginManager {
   private _plugins: Set<Plugin> = new Set();
