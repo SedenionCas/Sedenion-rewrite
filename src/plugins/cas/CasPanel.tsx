@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { EditableMathField, StaticMathField, addStyles } from "react-mathquill";
 import { ComputeEngine } from "@cortex-js/compute-engine";
 import { EqualIcon } from "lucide-react";

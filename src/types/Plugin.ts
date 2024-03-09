@@ -1,4 +1,4 @@
-import { PluginManager } from "src/lib/PluginManager";
+import PluginManager from "src/lib/PluginManager";
 
 export default abstract class Plugin {
   pluginManager: PluginManager;

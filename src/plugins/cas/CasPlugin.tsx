@@ -1,5 +1,5 @@
-import React, { ReactNode } from "react";
-import { PluginManager } from "src/lib/PluginManager";
+import { ReactNode } from "react";
+import PluginManager from "src/lib/PluginManager";
 import Plugin from "src/types/Plugin";
 import { type DbValue } from "src/types/Db";
 import CasPanel from "./CasPanel";
