@@ -1,8 +1,10 @@
 import { DockviewReact, DockviewReadyEvent } from "dockview";
 import { PluginManager } from "./lib/PluginManager";
 import CasPlugin from "./plugins/cas/CasPlugin";
+import DbDriver from "./plugins/dbDriver/DbDriver";
 
 const pluginManager = new PluginManager();
+pluginManager.load(new DbDriver(pluginManager));
 pluginManager.load(new CasPlugin(pluginManager));
 
 function App() {

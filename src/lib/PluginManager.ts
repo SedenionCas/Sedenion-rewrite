@@ -93,7 +93,10 @@ export class PluginManager {
 
     const value = this._functions.get(name)!(...args);
 
-    console.log(`Called function ${name} with args ${args} and got`, value);
+    console.log(
+      `Called function ${name} with args ${JSON.stringify(args)} and got`,
+      value
+    );
 
     return value;
   }
